@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Fixed from '../components/Fixed';
-import ErrorBoundary from '../components/ErrorBoundary';
 
 //styles
 import './App.css'
@@ -54,9 +53,7 @@ class App extends Component {
           <SearchBox searchChanged={onSearchChanged} />
         </Fixed>
         <div className='mt7'>
-          <ErrorBoundary>
-            <CardList robots={filteredBots} />
-          </ErrorBoundary>
+          <CardList robots={filteredBots} />
         </div>
       </div>
     );
