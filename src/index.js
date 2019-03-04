@@ -5,7 +5,7 @@ import { searchRobots, requestRobots } from './reducers';
 import { Provider } from "react-redux";
 import thunkMiddleware from "redux-thunk";
 import { createLogger } from "redux-logger";
-import registerServiceWorker from './registerServiceWorker';
+import { default as registerServiceWorker } from './registerServiceWorker';
 
 import './index.css';
 import "tachyons";
