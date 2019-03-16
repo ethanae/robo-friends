@@ -14,9 +14,15 @@ import "tachyons";
 import App from './containers/App';
 import ErrorBoundary from './components/ErrorBoundary';
 
+const DEBUG = process.env.NODE_ENV === 'development';
 const logger = createLogger();
 const rootReducer = combineReducers({ searchRobots, requestRobots });
-const store = createStore(rootReducer, applyMiddleware(thunkMiddleware, logger));
+const middleware = [
+  thunkMiddleware,
+  DEBUG && logger
+].filter(Boolean);
+
+const store = createStore(rootReducer, applyMiddleware(...middleware));
 
 ReactDOM.render(
   <Provider store={store}>
