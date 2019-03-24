@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 //components
-import CardList from '../components/CardList';
-import SearchBox from '../components/SearchBox';
-import Fixed from '../components/Fixed';
+import MainPage from '../components/MainPage';
 
 //styles
 import './App.css'
@@ -37,26 +35,7 @@ class App extends Component {
   }
 
   render() {
-    const { searchField, onSearchChanged, robots, isPending } = this.props;
-
-    if (isPending)
-      return <h1 className='f3 tc ma5'>Loading friends...</h1>;
-
-    const filteredBots = robots.filter(robot => {
-      return robot.name.toLowerCase().includes(searchField.toLowerCase());
-    });
-
-    return (
-      <div className='tc'>
-        <Fixed>
-          <h1 className='f1'>RoboFriends</h1>
-          <SearchBox searchChanged={onSearchChanged} />
-        </Fixed>
-        <div className='mt7'>
-          <CardList robots={filteredBots} />
-        </div>
-      </div>
-    );
+    return <MainPage {...this.props} />
   }
 }
 
