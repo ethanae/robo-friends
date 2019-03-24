@@ -56,7 +56,7 @@ it('handles isPending', () => {
   const newWrapper = shallow(<MainPage {...mockProps} />);
   expect(newWrapper.find(CardList)).toHaveLength(0);
   expect(newWrapper.find(SearchBox)).toHaveLength(0);
-  expect(newWrapper.find('h1')).toHaveLength(1);
+  expect(newWrapper.find('h1').text()).toEqual('Loading friends...');
   expect(newWrapper).toMatchSnapshot();
 });
 
