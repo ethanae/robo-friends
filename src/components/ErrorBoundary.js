@@ -14,7 +14,6 @@ class ErrorBoundary extends Component {
 
   render() {
     if (this.state.hasError) {
-      console.log('error boundary ***********************88');
       return <h1>Oooops. An error occurred</h1>;
     }
     return this.props.children;
